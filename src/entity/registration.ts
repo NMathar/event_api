@@ -1,4 +1,4 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {Event} from './event';
 
 @Entity()
@@ -12,8 +12,8 @@ export class Registration {
     @Column()
     lastName: string;
 
-    @Column()
-    timestamp: Date;
+    @CreateDateColumn()
+    created: Date;
 
     @Column()
     seats: number;

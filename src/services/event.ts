@@ -13,7 +13,7 @@ export class EventService {
         newEvent.name = event.name;
         newEvent.start = event.start;
         newEvent.end = event.end;
-        newEvent.created = new Date();
+        // newEvent.created = new Date().toLocaleString("de-DE", {timeZone: "Europe/Berlin"});
 
         const connection = await DatabaseProvider.getConnection();
         return await connection.getRepository(Event).save(newEvent);

@@ -20,7 +20,6 @@ export class RegistrationService {
         newReg.firstName = registration.firstName;
         newReg.lastName = registration.lastName;
         newReg.seats = registration.seats;
-        newReg.timestamp = new Date();
 
         const event = await connection.getRepository(Event).findOneById(eventId);
 
