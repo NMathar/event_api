@@ -2,10 +2,9 @@ import {HttpServer} from './httpServer';
 import {RequestHandler, Server as RestifyServer} from 'restify';
 import * as restify from 'restify';
 import {CONTROLLERS} from '../controllers/index';
-import server from "../index";
 
 export class Server implements HttpServer {
-    private restify: RestifyServer;
+    public restify: RestifyServer;
 
     public get(url: string, requestHandler: RequestHandler): void {
         this.addRoute('get', url, requestHandler);
@@ -36,13 +35,9 @@ export class Server implements HttpServer {
         this.addControllers();
 
         this.restify.listen(port, () => console.log(`Server is up & running on port ${port}`));
-
-        // console.log(this.restify.address());
     }
 
     private addControllers(): void {
         CONTROLLERS.forEach(controller => controller.initialize(this));
     }
 }
-
-// export default new Server();
