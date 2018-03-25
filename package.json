@@ -12,7 +12,7 @@
     "typescript"
   ],
   "scripts": {
-    "test": "mocha --reporter spec --require ts-node/register 'test/**/*.test.ts'",
+    "test": "PORT=8081 mocha --reporter spec --require ts-node/register 'test/**/*.test.ts'",
     "build": "rimraf build && tsc",
     "start": "nodemon --exec ts-node src/index.ts"
   },
