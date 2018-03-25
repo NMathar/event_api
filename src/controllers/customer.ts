@@ -5,11 +5,11 @@ import {customerService} from '../services/customer';
 
 export class CustomerController implements Controller {
     public initialize(httpServer: HttpServer): void {
-        httpServer.get('customers', this.list.bind(this));
-        httpServer.get('customer/:id', this.getById.bind(this));
-        httpServer.post('customer', this.create.bind(this));
-        httpServer.put('customer/:id', this.update.bind(this));
-        httpServer.del('customer/:id', this.remove.bind(this));
+        httpServer.get('/customers', this.list.bind(this));
+        httpServer.get('/customer/:id', this.getById.bind(this));
+        httpServer.post('/customer', this.create.bind(this));
+        httpServer.put('/customer/:id', this.update.bind(this));
+        httpServer.del('/customer/:id', this.remove.bind(this));
     }
 
     private async list(req: Request, res: Response): Promise<void> {

@@ -5,10 +5,10 @@ import {billService} from '../services/bill';
 
 export class BillController implements Controller {
     public initialize(httpServer: HttpServer): void {
-        httpServer.get('customer/:id/bills', this.list.bind(this));
-        httpServer.get('customer/:id/bill/:bid', this.getById.bind(this));
-        httpServer.post('customer/:id/bill', this.create.bind(this));
-        httpServer.del('customer/:id/bill/:bid', this.remove.bind(this));
+        httpServer.get('/customer/:id/bills', this.list.bind(this));
+        httpServer.get('/customer/:id/bill/:bid', this.getById.bind(this));
+        httpServer.post('/customer/:id/bill', this.create.bind(this));
+        httpServer.del('/customer/:id/bill/:bid', this.remove.bind(this));
     }
 
     private async list(req: Request, res: Response): Promise<void> {
