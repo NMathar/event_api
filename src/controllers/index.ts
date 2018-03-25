@@ -1,9 +1,9 @@
-import {CustomerController} from './customer';
-import {BillController} from './bill';
+import {EventController} from './event';
+import {RegistrationController} from './registration';
 import {DefaultController} from './default'
 
 export const CONTROLLERS = [
-    new CustomerController(),
-    new BillController(),
+    new EventController(),
+    new RegistrationController(),
     new DefaultController()
 ];

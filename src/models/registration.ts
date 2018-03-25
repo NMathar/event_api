@@ -1,8 +1,8 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
-import {Customer} from './customer';
+import {Event} from './event';
 
 @Entity()
-export class Bill {
+export class Registration {
     @PrimaryGeneratedColumn()
     public id: number;
 
@@ -12,6 +12,6 @@ export class Bill {
     @Column()
     public sum: number;
 
-    @ManyToOne(type => Customer, customer => customer.bills)
-    public customer: Customer;
+    @ManyToOne(type => Event, event => event.registrations)
+    public event: Event;
 }
