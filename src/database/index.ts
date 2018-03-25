@@ -1,6 +1,6 @@
 import {Connection, createConnection} from 'typeorm';
-import {Event} from '../models/event';
-import {Registration} from '../models/registration';
+import {Event} from '../entity/event';
+import {Registration} from '../entity/registration';
 
 export interface DatabaseConfiguration {
     type: 'postgres' | 'mysql' | 'mssql';

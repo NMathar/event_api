@@ -1,6 +1,6 @@
-import {Registration} from '../models/registration';
+import {Registration} from '../entity/registration';
 import {DatabaseProvider} from '../database/index';
-import {Event} from '../models/event';
+import {Event} from '../entity/event';
 
 export class RegistrationService {
     public async list(customerId: number): Promise<Registration[]> {
@@ -17,8 +17,10 @@ export class RegistrationService {
 
         // Normally DTO !== DB-Entity, so we "simulate" a mapping of both
         const newReg = new Registration();
-        newReg.title = registration.title;
-        newReg.sum = registration.sum;
+        newReg.firstName = registration.firstName;
+        newReg.lastName = registration.lastName;
+        newReg.seats = registration.seats;
+        newReg.timestamp = new Date();
 
         const event = await connection.getRepository(Event).findOneById(eventId);
 

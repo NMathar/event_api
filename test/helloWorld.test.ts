@@ -2,10 +2,12 @@ import * as mocha from 'mocha';
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 
+import {server} from '../src/index';
+
 // create test server
-import {Server} from '../src/server/index';
-const server = new Server();
-server.start(+process.env.PORT || 8081);
+// import {Server} from '../src/server/index';
+// const server = new Server();
+// server.start(+process.env.PORT || 8081);
 const app = server.restify;
 
 chai.use(chaiHttp);

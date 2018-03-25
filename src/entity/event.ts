@@ -4,17 +4,20 @@ import {Registration} from './registration';
 @Entity()
 export class Event {
     @PrimaryGeneratedColumn()
-    public id: number;
+    id: number;
 
     @Column()
-    public name: string;
+    name: string;
 
     @Column()
-    public start: Date;
+    start: Date;
 
     @Column()
-    public end: Date;
+    end: Date;
+
+    @Column()
+    created: Date;
 
     @OneToMany(type => Registration, registration => registration.event)
-    public registrations: Registration[];
+    registrations: Registration[];
 }

@@ -4,14 +4,20 @@ import {Event} from './event';
 @Entity()
 export class Registration {
     @PrimaryGeneratedColumn()
-    public id: number;
+    id: number;
 
     @Column()
-    public title: string;
+    firstName: string;
 
     @Column()
-    public sum: number;
+    lastName: string;
+
+    @Column()
+    timestamp: Date;
+
+    @Column()
+    seats: number;
 
     @ManyToOne(type => Event, event => event.registrations)
-    public event: Event;
+    event: Event;
 }
