@@ -1,3 +1,3 @@
 # Event API
 
-The api is to create events and handle/store the registration to this events.
+The api create events and handle/store the registration to this events.
