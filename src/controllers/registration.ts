@@ -16,7 +16,7 @@ export class RegistrationController implements Controller {
     }
 
     private async getById(req: Request, res: Response): Promise<void> {
-        const registration = await registrationService.getById(req.params.id);
+        const registration = await registrationService.getById(req.params.rid);
         res.send(registration ? 200 : 404, registration);
     }
 

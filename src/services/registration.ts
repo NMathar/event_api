@@ -33,7 +33,6 @@ export class RegistrationService {
     }
 
     public async getById(id: number): Promise<Registration> {
-        console.log(id);
         const connection = await DatabaseProvider.getConnection();
         return connection.getRepository(Registration).findOneById(id);
     }
