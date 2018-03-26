@@ -32,6 +32,18 @@ export class RegistrationService {
         return await connection.getRepository(Registration).save(newReg);
     }
 
+    public async update(registration: Registration): Promise<Registration> {
+        const connection = await DatabaseProvider.getConnection();
+        const repository = connection.getRepository(Registration);
+        const entity = await repository.findOneById(registration.id);
+
+        entity.firstName = registration.firstName;
+        entity.lastName = registration.lastName;
+        entity.seats = registration.seats;
+
+        return await repository.save(entity);
+    }
+
     public async getById(id: number): Promise<Registration> {
         const connection = await DatabaseProvider.getConnection();
         return connection.getRepository(Registration).findOneById(id);
