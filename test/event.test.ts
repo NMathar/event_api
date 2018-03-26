@@ -9,39 +9,60 @@ const app = server.restify;
 chai.use(chaiHttp);
 const expect = chai.expect;
 
-const eventData = {
-    'name': 'Test Event 123',
+const createData = {
+    'name': 'Test Event 12345',
     'start': '12.02.1991',
     'end': '1-1-1970'
 };
 
+const editData = {'name' : 'Test Update Name'};
+
+let id = 0;
+
 describe('createEventData', () => {
-
-    it('insert new event', () => {
+    it('insert new event', (done) => {
         chai.request(app).post('/event')
-            .send(eventData)
+            .send(createData)
             .then(res => {
-                // expect(res.type).to.eql('application/json');
-
+                expect(res.type).to.eql('application/json');
                 //set global id for more actions
-                const ID = res.body.id;
-                describe('getEventData', () => {
-                    it('check datetime event id data', () => {
-                        chai.request(app).get('/event/' + ID)
-                            .then(res => {
-                                expect(res.body.created).to.eql(new Date().toLocaleString("de-DE", {timeZone: "Europe/Berlin"}));
-                            });
-                    });
-
-                    it('check event id data', () => {
-                        chai.request(app).get('/event/' + ID)
-                            .then(res => {
-                                expect(res.body.name).to.eql(eventData.name);
-                            });
-                    });
-                })
+                id = res.body.id;
+                done();
             }).catch(function (err) {
             throw err;
         });
+    });
+});
+
+describe('getEventData', () => {
+    it('check event id data', (done) => {
+        chai.request(app).get('/event/' + id)
+            .then(res => {
+                expect(res.body.name).to.eql(createData.name);
+                done();
+            });
+    });
+});
+
+describe('editEventData', () => {
+    it('update event data by id', (done) => {
+        chai.request(app)
+            .put('/event/' + id)
+            .send({ 'name': 'Test Update Data' })
+            .then(res => {
+                expect(res.body.name).to.eql('Test Update Data');
+                done();
+            });
+    });
+});
+
+describe('deleteEventData', () => {
+    it('delete event data by id', (done) => {
+        chai.request(app)
+            .del('/event/' + id)
+            .then(res => {
+                expect(res).to.have.status(200);
+                done();
+            });
     });
 });
