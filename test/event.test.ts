@@ -48,9 +48,9 @@ describe('editEventData', () => {
     it('update event data by id', (done) => {
         chai.request(app)
             .put('/event/' + id)
-            .send({ 'name': 'Test Update Data' })
+            .send(editData)
             .then(res => {
-                expect(res.body.name).to.eql('Test Update Data');
+                expect(res.body.name).to.eql(editData.name);
                 done();
             });
     });
