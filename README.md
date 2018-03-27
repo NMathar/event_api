@@ -1,5 +1,7 @@
 # Event API
 
+[![pipeline status](https://gitlab.com/nmonst4/event_api/badges/master/pipeline.svg)](https://gitlab.com/nmonst4/event_api/commits/master)
+
 The api create events and handle/store the registration to this events.
 
 
