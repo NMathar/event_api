@@ -21,7 +21,6 @@ before_script:
 
 stages:
   - build
-  - createdb
   - test
 
 build:
@@ -29,12 +28,8 @@ build:
   script:
     - npm run build
 
-createdb:
-  stage: createdb
-  script:
-   - npm run schema:sync
-
 test:
   stage: test
   script:
+    - npm run schema:sync
     - npm test
