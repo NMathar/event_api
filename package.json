@@ -14,8 +14,8 @@
   "scripts": {
     "test": "PORT=8081 mocha --reporter spec --require ts-node/register 'test/**/*.test.ts' --exit",
     "build": "rimraf build && tsc",
-    "debug": "node ./build/index.js",
-    "start": "nodemon --exec ts-node src/index.ts",
+    "start": "node ./build/index.js",
+    "debug": "nodemon --exec ts-node src/index.ts",
     "schema:sync" : "ts-node node_modules/typeorm/cli.js schema:sync",
     "schema:migrate" : "ts-node node_modules/typeorm/cli.js migrations:generate -n Migration && ts-node node_modules/typeorm/cli.js migrations:run"
   },
