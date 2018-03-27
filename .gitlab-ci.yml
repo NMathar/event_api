@@ -31,4 +31,4 @@ build:
 test:
   stage: test
   script:
-    - npm run test
+    - npm test
