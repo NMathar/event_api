@@ -1,0 +1,34 @@
+image: node:8
+
+services:
+  - mysql:latest
+
+variables:
+  # Configure mysql service (https://hub.docker.com/_/mysql/)
+  MYSQL_ROOT_PASSWORD: mysql
+  MYSQL_DATABASE: event_api
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+ - export DATABASE_HOST=mysql
+ - export DATABASE_USERNAME=root
+ - export DATABASE_PASSWORD=mysql
+ - export DATABASE_NAME=event_api
+ - npm install
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - npm run build
+
+test:
+  stage: test
+  script:
+    - npm run test
