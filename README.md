@@ -5,6 +5,36 @@
 The api create events and handle/store the registration to this events.
 
 
+## Development
+
+### Install
+`npm install`
+
+### Add Database and create schema
+
+Create a database on localhost:3306 or change the ormconfig.js or set environment variables
+
+`export DATABASE_HOST=localhost`
+`export DATABASE_USERNAME=root`
+`export DATABASE_PASSWORD=root`
+`export DATABASE_NAME=eventapi`
+
+now we can create our schema and tables.
+
+`npm run schema:sync`
+
+
+### Run Debug Server
+
+`npm run debug`
+
+### Test
+
+`npm test`
+
+**Attention:** Windows user need to edit the test command in the package.json. They need to remove the PORT part.
+
+
 ## Docker
 
 ### Build Image
