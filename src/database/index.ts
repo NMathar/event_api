@@ -3,7 +3,7 @@ import {Event} from '../entity/event';
 import {Registration} from '../entity/registration';
 
 export interface DatabaseConfiguration {
-    type: 'postgres' | 'mysql' | 'mssql';
+    type: string; //'postgres' | 'mysql' | 'mssql'
     host: string;
     port: number;
     username: string;

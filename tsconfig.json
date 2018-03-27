@@ -5,9 +5,11 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "outDir": "build"
+    "outDir": "build",
+    "allowJs": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "test"
   ]
 }
