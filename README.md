@@ -15,8 +15,11 @@ The api create events and handle/store the registration to this events.
 Create a database on localhost:3306 or change the ormconfig.js or set environment variables
 
 `export DATABASE_HOST=localhost`
+
 `export DATABASE_USERNAME=root`
+
 `export DATABASE_PASSWORD=root`
+
 `export DATABASE_NAME=eventapi`
 
 now we can create our schema and tables.
